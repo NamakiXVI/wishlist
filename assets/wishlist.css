@@ -1,0 +1,185 @@
+:root {
+  --cream: #FFF8F3;
+  --blossom: #FFE1EC;
+  --blush: #FFB6C1;
+  --rose: #F2748C;
+  --rosedark: #E1516F;
+  --lavender: #E6D9F7;
+  --mint: #C6F1DE;
+  --peach: #FFE3D3;
+  --gold: #F0C46A;
+  --ink: #5C3A4E;
+  --shadow: 0 10px 30px rgba(242, 116, 140, 0.25);
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; background: var(--cream); color: var(--ink); }
+body { font-family: 'Quicksand', sans-serif; font-weight: 500; line-height: 1.6; -webkit-text-size-adjust: 100%; }
+[hidden] { display: none !important; }
+
+.back {
+  position: absolute; left: 16px; top: 16px; z-index: 5;
+  padding: 7px 14px; border-radius: 999px; text-decoration: none;
+  background: #fff; color: var(--rose);
+  font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 0.9rem;
+  box-shadow: 0 6px 16px rgba(242, 116, 140, 0.18);
+}
+.page { max-width: 1020px; margin: 0 auto; padding: 56px 20px 70px; }
+
+header { text-align: center; }
+.badge {
+  display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px;
+  background: var(--blossom); color: var(--rose);
+  font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 0.8rem;
+}
+.headline-wrap { position: relative; display: inline-block; margin-top: 10px; }
+h1 {
+  margin: 0; font-family: 'Pacifico', cursive; font-weight: 400; color: var(--rose);
+  font-size: clamp(2.3rem, 7vw, 3.3rem); line-height: 1.3;
+  filter: drop-shadow(0 4px 10px rgba(242, 116, 140, 0.25));
+  animation: floaty 2.6s ease-in-out infinite;
+}
+.deco { position: absolute; pointer-events: none; animation: floaty 2.6s ease-in-out infinite; }
+.subtitle { margin: 10px 0 0; font-weight: 600; color: rgba(92, 58, 78, 0.65); }
+.toolbar { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
+.status { min-height: 1.6em; margin: 12px 0 0; font-size: 0.88rem; font-weight: 600; color: rgba(92, 58, 78, 0.55); transition: color 0.3s ease; }
+.status.flash { color: var(--rosedark); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 24px; border: 0; border-radius: 999px; cursor: pointer; text-decoration: none;
+  background: var(--rose); color: var(--cream);
+  font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
+  box-shadow: 0 10px 24px rgba(242, 116, 140, 0.45);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.btn:hover { transform: translateY(-2px); background: var(--rosedark); }
+.btn:active { transform: scale(0.92); }
+.btn-soft { background: #fff; color: var(--rose); box-shadow: 0 10px 24px rgba(242, 116, 140, 0.22); }
+.btn-soft:hover { background: var(--blossom); }
+.btn-small { padding: 9px 16px; font-size: 0.9rem; }
+
+.grid { display: grid; gap: 22px; margin-top: 30px; grid-template-columns: repeat(auto-fill, minmax(205px, 1fr)); }
+.wish {
+  position: relative; display: flex; flex-direction: column;
+  padding: 12px 12px 10px; border: 6px solid #fff; border-radius: 28px;
+  background: var(--blossom); box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
+}
+.wish.c1 { background: var(--lavender); }
+.wish.c2 { background: var(--mint); }
+.wish.c3 { background: var(--peach); }
+.wish:nth-child(3n+1) { transform: rotate(-1.2deg); }
+.wish:nth-child(3n+2) { transform: rotate(0.9deg); }
+.wish:hover { transform: rotate(0deg) translateY(-3px); }
+.wish.pop { animation: popin 0.6s cubic-bezier(0.3, 1.5, 0.5, 1) backwards; }
+.wish.fav-on { box-shadow: 0 0 0 3px rgba(242, 116, 140, 0.45), var(--shadow); }
+.wish-pic {
+  display: grid; place-items: center; overflow: hidden;
+  aspect-ratio: 1 / 1; border-radius: 20px; background: #fff;
+}
+.wish-pic img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.wish-pic.sticker { font-size: 4.2rem; background: rgba(255, 255, 255, 0.75); }
+.wish h3 { margin: 10px 4px 0; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.06rem; line-height: 1.3; color: var(--ink); }
+.wish .detail { margin: 3px 4px 0; font-size: 0.86rem; font-weight: 600; line-height: 1.4; color: rgba(92, 58, 78, 0.7); }
+.wish .note { margin: 6px 4px 0; font-family: 'Caveat', cursive; font-weight: 600; font-size: 1.25rem; line-height: 1.2; color: var(--rosedark); }
+.wish .row { display: flex; justify-content: flex-end; gap: 6px; margin-top: auto; padding-top: 10px; }
+.mini {
+  display: inline-grid; place-items: center; width: 34px; height: 34px; padding: 0;
+  border: 0; border-radius: 50%; cursor: pointer; text-decoration: none;
+  background: rgba(255, 255, 255, 0.85); color: var(--rose);
+  font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.95rem; line-height: 1;
+  box-shadow: 0 4px 10px rgba(242, 116, 140, 0.18);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.mini:hover { background: #fff; transform: scale(1.1); }
+.fav {
+  position: absolute; left: 18px; top: 18px; z-index: 1;
+  width: 40px; height: 40px; padding: 0; border: 0; border-radius: 50%; cursor: pointer;
+  background: rgba(255, 255, 255, 0.92); color: var(--rose);
+  font-size: 1.3rem; line-height: 1;
+  box-shadow: 0 4px 12px rgba(242, 116, 140, 0.25);
+  transition: transform 0.15s ease;
+}
+.fav:hover { transform: scale(1.12); }
+.fav.on { background: var(--rose); color: #fff; animation: beat 0.5s ease; }
+.empty { margin: 40px 0 0; text-align: center; font-weight: 600; color: rgba(92, 58, 78, 0.6); }
+
+.editor { width: min(460px, calc(100vw - 24px)); max-height: calc(100vh - 24px); padding: 0; border: 0; border-radius: 32px; background: transparent; overflow: visible; }
+.editor::backdrop { background: rgba(92, 58, 78, 0.45); }
+.editor[open] { animation: popin 0.35s cubic-bezier(0.3, 1.4, 0.5, 1) both; }
+.editor-card {
+  max-height: calc(100vh - 24px); overflow-y: auto;
+  padding: 24px 22px 20px; border: 6px solid #fff; border-radius: 32px;
+  background: var(--cream); box-shadow: 0 24px 60px rgba(92, 58, 78, 0.3);
+}
+.editor-card h2 { margin: 0 0 14px; text-align: center; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.35rem; color: var(--rose); }
+.field { display: block; margin: 0 0 12px; }
+.field > span { display: block; margin: 0 0 5px 4px; font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 0.92rem; color: var(--ink); }
+.field em { font-style: normal; font-weight: 500; color: rgba(92, 58, 78, 0.5); }
+.field input, .field textarea {
+  display: block; width: 100%; padding: 11px 14px;
+  border: 2px solid var(--blossom); border-radius: 16px; background: #fff; color: var(--ink);
+  font: inherit; font-weight: 600; outline: none; resize: vertical;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.field input:focus, .field textarea:focus { border-color: var(--blush); box-shadow: 0 0 0 4px rgba(255, 182, 193, 0.35); }
+.field input.bad { border-color: var(--rose); animation: shake 0.35s ease; }
+.pic-row { display: flex; align-items: center; gap: 14px; }
+.pic-preview {
+  flex: 0 0 auto; display: grid; place-items: center; overflow: hidden;
+  width: 86px; height: 86px; border-radius: 20px; background: #fff;
+  box-shadow: inset 0 0 0 2px var(--blossom); font-size: 2.6rem;
+}
+.pic-preview img { width: 100%; height: 100%; object-fit: cover; }
+.pic-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.link-btn { padding: 2px 4px; border: 0; background: none; cursor: pointer; color: var(--rosedark); font: inherit; font-size: 0.85rem; font-weight: 600; text-decoration: underline; }
+.sticker-label { margin: 10px 0 6px 4px; font-size: 0.85rem; font-weight: 600; color: rgba(92, 58, 78, 0.6); }
+.stickers { display: flex; flex-wrap: wrap; gap: 6px; }
+.stickers button {
+  width: 40px; height: 40px; padding: 0; border: 2px solid transparent; border-radius: 12px; cursor: pointer;
+  background: #fff; font-size: 1.3rem; line-height: 1;
+  transition: transform 0.12s ease, border-color 0.12s ease;
+}
+.stickers button:hover { transform: scale(1.1); }
+.stickers button.on { border-color: var(--rose); background: var(--blossom); }
+.editor-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; margin-top: 18px; }
+
+.toast {
+  position: fixed; left: 50%; bottom: 24px; z-index: 80;
+  display: flex; align-items: center; gap: 12px; max-width: calc(100vw - 32px);
+  padding: 12px 18px; border-radius: 999px; background: var(--ink); color: #fff;
+  font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 0.95rem;
+  box-shadow: 0 12px 30px rgba(92, 58, 78, 0.35);
+  opacity: 0; transform: translate(-50%, 20px); transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.toast.on { opacity: 1; transform: translate(-50%, 0); }
+.toast .undo { padding: 4px 12px; border: 0; border-radius: 999px; cursor: pointer; background: var(--rose); color: #fff; font: inherit; font-weight: 700; }
+
+.heart-sparkle { position: fixed; z-index: 90; pointer-events: none; font-size: 1.4rem; animation: sparklefloat 1s ease-out forwards; }
+
+@keyframes risein { from { transform: translateY(16px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes popin { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: none; } }
+@keyframes beat { 0%, 100% { transform: scale(1); } 40% { transform: scale(1.3); } }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+@keyframes sparklefloat {
+  0% { transform: translate(0, 0) scale(0.5); opacity: 0; }
+  25% { opacity: 1; }
+  100% { transform: translate(var(--dx, 0px), -80px) scale(1.15); opacity: 0; }
+}
+.rise { animation: risein 0.5s ease-out both; }
+
+@media (max-width: 520px) {
+  .grid { gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wish { padding: 8px 8px 8px; border-width: 5px; border-radius: 22px; }
+  .wish-pic { border-radius: 15px; }
+  .wish h3 { font-size: 0.95rem; }
+  .wish .detail { font-size: 0.8rem; }
+  .fav { left: 12px; top: 12px; width: 34px; height: 34px; font-size: 1.1rem; }
+  .mini { width: 30px; height: 30px; font-size: 0.85rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rise, h1, .deco, .wish.pop, .fav.on, .editor[open], .heart-sparkle { animation: none !important; }
+  .wish, .btn, .toast { transition: none; }
+}

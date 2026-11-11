@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#FFF8F3">
+<title>Your wishlist 🎀</title>
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/wishlist.css">
+</head>
+<body>
+<a class="back" href="../Open%20me.html">← back</a>
+<main class="page">
+  <header>
+    <span class="badge rise">🎀 Just for you</span>
+    <div class="rise" style="animation-delay:.1s">
+      <div class="headline-wrap">
+        <span class="deco" aria-hidden="true" style="left:-2.3rem;top:.3rem;font-size:1.6rem">💭</span>
+        <span class="deco" aria-hidden="true" style="right:-2rem;top:.7rem;font-size:1.4rem;animation-delay:-1.2s">✨</span>
+        <h1>Quynh's wishlist</h1>
+      </div>
+    </div>
+    <p class="subtitle rise" style="animation-delay:.2s">Add everything you're wishing for. It saves by itself 💕</p>
+    <div class="toolbar rise" style="animation-delay:.3s">
+      <button id="add" class="btn" type="button">＋ Add a wish</button>
+      <button id="copy" class="btn btn-soft" type="button">Copy my list 📋</button>
+    </div>
+    <p id="status" class="status" aria-live="polite"></p>
+  </header>
+  <section id="grid" class="grid" aria-label="Your wishes"></section>
+  <p id="empty" class="empty" hidden>Your wishlist is empty. Tap “Add a wish” to start 💭</p>
+</main>
+
+<dialog id="editor" class="editor" aria-labelledby="editor-title">
+  <form id="form" class="editor-card" novalidate>
+    <h2 id="editor-title">Add a wish 💭</h2>
+    <label class="field">
+      <span>What do you wish for?</span>
+      <input id="f-name" maxlength="80" autocomplete="off" placeholder="e.g. a cute mug">
+    </label>
+    <label class="field">
+      <span>Details <em>(optional)</em></span>
+      <input id="f-detail" maxlength="120" autocomplete="off" placeholder="brand, shade, size, colour…">
+    </label>
+    <label class="field">
+      <span>Link <em>(optional)</em></span>
+      <input id="f-link" maxlength="600" autocomplete="off" inputmode="url" placeholder="https://…">
+    </label>
+    <label class="field">
+      <span>Note <em>(optional)</em></span>
+      <textarea id="f-note" maxlength="200" rows="2" placeholder="why you want it 💭"></textarea>
+    </label>
+    <div class="field">
+      <span>Picture <em>(optional)</em></span>
+      <div class="pic-row">
+        <div id="f-preview" class="pic-preview"></div>
+        <div class="pic-actions">
+          <label class="btn btn-soft btn-small">Choose a picture 📷<input id="f-file" type="file" accept="image/*" hidden></label>
+          <button id="f-clear" class="link-btn" type="button" hidden>remove picture</button>
+        </div>
+      </div>
+      <p class="sticker-label">or pick a sticker:</p>
+      <div id="f-stickers" class="stickers" role="group" aria-label="Stickers"></div>
+    </div>
+    <div class="editor-actions">
+      <button id="f-cancel" class="btn btn-soft" type="button">Cancel</button>
+      <button id="f-save" class="btn" type="submit">Add to my wishlist 💕</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast" class="toast" role="status" hidden></div>
+<script src="../assets/vendor/firebase-app-compat.js"></script>
+<script src="../assets/vendor/firebase-firestore-compat.js"></script>
+<script src="../assets/firebase-config.js"></script>
+<script src="../assets/wishlist-key.js"></script>
+<script src="../assets/wishlist.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+window.WISHLIST_KEY = "";
